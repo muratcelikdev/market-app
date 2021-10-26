@@ -1,3 +1,9 @@
-const App = () => <div className="App">Market App</div>;
+import GlobalStyle from 'styles/globalStyles';
+
+const App = () => (
+  <>
+    <GlobalStyle />
+  </>
+);
 
 export default App;
