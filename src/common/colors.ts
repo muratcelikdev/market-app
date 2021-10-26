@@ -1,4 +1,5 @@
 export const base = '#1ea4ce';
+export const baseDark = '#147594';
 export const white = '#ffffff';
 export const lightPink = '#f2f0fd';
 
