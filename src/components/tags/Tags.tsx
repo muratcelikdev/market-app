@@ -5,6 +5,7 @@ import Tag from 'components/tag/Tag';
 
 interface ITags {
   tags: Array<string>;
+  className?: string;
 }
 
 const StyledTagsContainer = styled.div`
@@ -13,7 +14,7 @@ const StyledTagsContainer = styled.div`
   gap: 8px;
 `;
 
-const Tags = ({ tags }: ITags): JSX.Element => {
+const Tags = ({ tags, className }: ITags): JSX.Element => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const renderTags = () =>
@@ -25,7 +26,7 @@ const Tags = ({ tags }: ITags): JSX.Element => {
       />
     ));
 
-  return <StyledTagsContainer>{renderTags()}</StyledTagsContainer>;
+  return <StyledTagsContainer className={className}>{renderTags()}</StyledTagsContainer>;
 };
 
 export default Tags;
