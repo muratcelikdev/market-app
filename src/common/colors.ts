@@ -16,4 +16,5 @@ export const grey400 = '#e0e0e0';
 export const grey460 = '#a8a8a8';
 export const grey500 = '#525252';
 
-export const shadow = 'rgba(93, 56, 192, 0.4)';
+export const shadow100 = 'rgba(93, 56, 192, 0.4)';
+export const shadow200 = 'rgba(93, 62, 188, 0.04)';

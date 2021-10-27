@@ -35,6 +35,8 @@ const StyledSortOrder = styled.div`
   padding: 26px 24px;
 
   background-color: ${colors.white};
+
+  box-shadow: 0 6px 24px 0 ${colors.shadow200};
 `;
 
 const SortOrder = () => {

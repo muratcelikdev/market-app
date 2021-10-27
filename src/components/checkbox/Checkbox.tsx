@@ -27,7 +27,7 @@ const StyledCheckbox = styled.button(
 
     border-radius: 2px;
 
-    box-shadow: 0 1px 7px 0 ${colors.shadow};
+    box-shadow: 0 1px 7px 0 ${colors.shadow100};
 
     cursor: pointer;
   `
