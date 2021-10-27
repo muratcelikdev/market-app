@@ -13,6 +13,7 @@ const StyledBasketList = styled.div`
 
   width: 280px;
   min-height: 321.9px;
+  height: fit-content;
 
   padding: 16px;
 
