@@ -10,7 +10,7 @@ interface IButton {
 const StyledButton = styled.button`
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
 
   width: 124px;
   height: 22px;
