@@ -5,6 +5,7 @@ export const lightPink = '#f2f0fd';
 
 export const black100 = '#697488';
 export const black200 = '#191919';
+export const black300 = '#6f6f6f';
 
 export const grey50 = '#fafafa';
 export const grey100 = '#f3f0fe';
