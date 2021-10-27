@@ -9,6 +9,7 @@ export const black300 = '#6f6f6f';
 
 export const grey50 = '#fafafa';
 export const grey100 = '#f3f0fe';
+export const grey160 = '#f4f4f4';
 export const grey200 = '#dfdee2';
 export const grey300 = '#c4c4c4';
 export const grey400 = '#e0e0e0';
