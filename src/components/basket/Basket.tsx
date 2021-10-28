@@ -1,10 +1,14 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 
 import * as colors from 'common/colors';
 import { BasketProps } from 'common/interfaces';
 
+import Modal from 'components/modal/Modal';
+import BasketList from 'components/basket-list/BasketList';
+
 import { FlexBoxCentered } from 'styles/components';
-import screens from 'styles/screen';
+import screens, { intervals } from 'styles/screen';
 
 import BasketIcon from 'assets/icons/basket.svg';
 
@@ -43,11 +47,30 @@ const StyledIcon = styled.img`
 `;
 
 const Basket = ({ price }: BasketProps): JSX.Element => {
+  const [basketListModalVisible, setBasketListModalVisible] = useState<boolean>(false);
+
+  const handleBasketListModalVisibility = () => {
+    if (window.innerWidth <= intervals.smallScreenMaxWidth) {
+      setBasketListModalVisible(!basketListModalVisible);
+    } else {
+      setBasketListModalVisible(false);
+    }
+  };
+
   return (
-    <StyledBasketButton>
-      <StyledIcon src={BasketIcon} alt="Basket Icon" />
-      <StyledPriceText>{price}</StyledPriceText>
-    </StyledBasketButton>
+    <>
+      <StyledBasketButton onClick={handleBasketListModalVisibility}>
+        <StyledIcon src={BasketIcon} alt="Basket Icon" />
+        <StyledPriceText>{price}</StyledPriceText>
+      </StyledBasketButton>
+      <Modal
+        visible={basketListModalVisible}
+        submitButtonText="Close"
+        onClose={() => setBasketListModalVisible(false)}
+      >
+        <BasketList />
+      </Modal>
+    </>
   );
 };
 

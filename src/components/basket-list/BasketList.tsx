@@ -7,6 +7,7 @@ import BasketListItem from 'components/basket-list-item/BasketListItem';
 import BasketTotalAmount from 'components/basket-total-amount/BasketTotalAmount';
 
 import { FlexBox } from 'styles/components';
+import screens from 'styles/screen';
 
 const StyledBasketList = styled(FlexBox)`
   width: 280px;
@@ -18,9 +19,22 @@ const StyledBasketList = styled(FlexBox)`
   background-color: ${colors.white};
 
   border: 8.2px solid ${colors.base};
+
+  @media ${screens.smallScreen} {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
-const StyledBasketListItemContainer = styled(FlexBox)``;
+const StyledBasketListItemContainer = styled(FlexBox)`
+  width: 100%;
+
+  @media ${screens.smallScreen} {
+    max-height: calc(100% - 50px);
+
+    overflow-y: scroll;
+  }
+`;
 
 const StyledBasketListItem = styled(BasketListItem)`
   padding: 20.4px 0;
