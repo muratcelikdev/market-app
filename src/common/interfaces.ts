@@ -15,6 +15,8 @@ export interface BasketTotalAmountProps {
   className?: string;
 }
 
+export interface BasketListProps extends BasketTotalAmountProps {}
+
 export interface ButtonProps {
   text: string;
   onClick: () => void;

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import * as colors from 'common/colors';
+import { BasketListProps } from 'common/interfaces';
 
 import BasketListItem from 'components/basket-list-item/BasketListItem';
 import BasketTotalAmount from 'components/basket-total-amount/BasketTotalAmount';
@@ -35,9 +36,14 @@ const StyledBasketTotalAmount = styled(BasketTotalAmount)`
   margin-top: 16.4px;
 `;
 
-const BasketList = () => {
+const BasketList = ({ className }: BasketListProps) => {
   return (
-    <StyledBasketList flexDirection="column" justifyContent="space-between" alignItems="flex-end">
+    <StyledBasketList
+      className={className}
+      flexDirection="column"
+      justifyContent="space-between"
+      alignItems="flex-end"
+    >
       <StyledBasketListItemContainer flexDirection="column">
         {/* TODO: implement dynamic basket list item logic */}
         <StyledBasketListItem productName="Example Product" price={14.99} />
