@@ -20,6 +20,7 @@ export interface BasketListProps extends BasketTotalAmountProps {}
 export interface ButtonProps {
   text: string;
   onClick: () => void;
+  className?: string;
 }
 
 export interface CheckboxProps {
@@ -45,6 +46,13 @@ export interface CheckboxGroupProps {
 export interface CheckboxGroupSearchableProps {
   title: string;
   options: Array<CheckboxGroupItemProps>;
+}
+
+export interface ModalProps {
+  children?: JSX.Element | JSX.Element[];
+  visible: boolean;
+  submitButtonText: string;
+  onClose: () => void;
 }
 
 export interface PageProps {
