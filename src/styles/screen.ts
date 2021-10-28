@@ -8,8 +8,8 @@ const intervals = {
 };
 
 const screens = {
-  smallScreen: `(max-width: #{${intervals.smallScreenMaxWidth}px})`,
-  largeScreen: `(max-width: #{${intervals.largeScreenMinWidth}px})`,
+  smallScreen: `(max-width: ${intervals.smallScreenMaxWidth}px)`,
+  largeScreen: `(max-width: ${intervals.largeScreenMinWidth}px)`,
 };
 
 export default screens;
