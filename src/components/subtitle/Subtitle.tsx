@@ -1,11 +1,7 @@
 import styled from 'styled-components';
 
 import * as colors from 'common/colors';
-
-interface ISubtitle {
-  text: string;
-  className?: string;
-}
+import { SubtitleProps } from 'common/interfaces';
 
 const StyledSubtitle = styled.h2`
   font-size: 13px;
@@ -14,7 +10,7 @@ const StyledSubtitle = styled.h2`
   color: ${colors.black100};
 `;
 
-const Subtitle = ({ text, className }: ISubtitle): JSX.Element => (
+const Subtitle = ({ text, className }: SubtitleProps): JSX.Element => (
   <StyledSubtitle className={className}>{text}</StyledSubtitle>
 );
 

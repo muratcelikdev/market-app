@@ -1,18 +1,15 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
+import { TagsProps } from 'common/interfaces';
+
 import Tag from 'components/tag/Tag';
 
 import { FlexBox } from 'styles/components';
 
-interface ITags {
-  tags: Array<string>;
-  className?: string;
-}
-
 const StyledTagsContainer = styled(FlexBox)``;
 
-const Tags = ({ tags, className }: ITags): JSX.Element => {
+const Tags = ({ tags, className }: TagsProps): JSX.Element => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const renderTags = () =>

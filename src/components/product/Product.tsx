@@ -1,14 +1,10 @@
 import styled from 'styled-components';
 
 import * as colors from 'common/colors';
+import { ProductProps } from 'common/interfaces';
 
 import ProductImage from 'components/product-image/ProductImage';
 import Button from 'components/button/Button';
-
-interface IProduct {
-  price: number;
-  productName: string;
-}
 
 const StyledProductContainer = styled.div`
   width: 124px;
@@ -38,7 +34,7 @@ const StyledProductName = styled.div`
   margin-bottom: 8px;
 `;
 
-const Product = ({ price, productName }: IProduct): JSX.Element => {
+const Product = ({ price, productName }: ProductProps): JSX.Element => {
   return (
     <StyledProductContainer>
       <ProductImage />

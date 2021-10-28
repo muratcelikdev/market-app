@@ -1,13 +1,9 @@
 import { useState, useEffect, ChangeEvent } from 'react';
 import styled from 'styled-components';
 
-import * as colors from 'common/colors';
+import { SearchboxProps } from 'common/interfaces';
 
-interface ISearchbox {
-  placeholderText: string;
-  onSearch: (string) => void;
-  className?: string;
-}
+import * as colors from 'common/colors';
 
 const StyledSearchbox = styled.input.attrs({
   type: 'search',
@@ -32,7 +28,7 @@ const StyledSearchbox = styled.input.attrs({
   }
 `;
 
-const Searchbox = ({ placeholderText, onSearch, className }: ISearchbox): JSX.Element => {
+const Searchbox = ({ placeholderText, onSearch, className }: SearchboxProps): JSX.Element => {
   const [searchText, setSearchText] = useState<string>('');
 
   useEffect(() => {

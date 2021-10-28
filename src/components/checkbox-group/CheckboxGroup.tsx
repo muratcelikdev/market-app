@@ -1,19 +1,10 @@
 import styled from 'styled-components';
 
+import { CheckboxGroupProps } from 'common/interfaces';
+
 import CheckboxItem from 'components/checkbox-item/CheckboxItem';
 
 import { FlexBox } from 'styles/components';
-
-interface ICheckboxGroupItem {
-  value: any;
-  text: string;
-  info: number | string;
-}
-
-interface ICheckboxGroup {
-  options: Array<ICheckboxGroupItem>;
-  searchText: string;
-}
 
 const StyledCheckboxGroupContainer = styled(FlexBox)`
   max-height: 130px;
@@ -23,7 +14,7 @@ const StyledCheckboxGroupContainer = styled(FlexBox)`
   overflow-y: scroll;
 `;
 
-const CheckboxGroup = ({ options, searchText }: ICheckboxGroup): JSX.Element => {
+const CheckboxGroup = ({ options, searchText }: CheckboxGroupProps): JSX.Element => {
   const handleSelect = (selection) => {
     //   TODO: implement selection logic
   };

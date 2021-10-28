@@ -1,18 +1,13 @@
 import styled, { css } from 'styled-components';
 
 import * as colors from 'common/colors';
+import { RadioButtonComponentProps } from 'common/interfaces';
 
 import { FlexBox, FlexBoxCentered } from 'styles/components';
 
 import BlueCheckIcon from 'assets/icons/blue-check.svg';
 
-interface IRadioButton {
-  checked?: boolean;
-  text: string;
-  onSelect: () => void;
-}
-
-interface IStyledRadioButton {
+interface StyledRadioButtonProps {
   checked?: boolean;
 }
 
@@ -21,7 +16,7 @@ const StyledRadioButtonContainer = styled(FlexBox).attrs({ as: 'button' })`
 `;
 
 const StyledRadioButton = styled(FlexBoxCentered)(
-  ({ checked }: IStyledRadioButton) => css`
+  ({ checked }: StyledRadioButtonProps) => css`
     width: 22px;
     height: 22px;
 
@@ -43,7 +38,7 @@ const StyledRadioButtonText = styled.div`
   color: ${colors.grey500};
 `;
 
-const RadioButton = ({ checked, text, onSelect }: IRadioButton): JSX.Element => {
+const RadioButton = ({ checked, text, onSelect }: RadioButtonComponentProps): JSX.Element => {
   const handleRadioButtonClick = () => {
     onSelect();
   };

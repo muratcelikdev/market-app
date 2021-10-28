@@ -1,17 +1,11 @@
 import styled from 'styled-components';
 
 import * as colors from 'common/colors';
+import { CheckboxItemProps } from 'common/interfaces';
 
 import Checkbox from 'components/checkbox/Checkbox';
 
 import { FlexBox } from 'styles/components';
-
-interface ICheckboxItem {
-  value: any;
-  text: string;
-  info: number | string;
-  onSelect: (value: any) => void;
-}
 
 const StyledCheckboxItemContainer = styled(FlexBox)``;
 
@@ -43,7 +37,7 @@ const StyledCheckboxInfo = styled(StyledCheckboxText)`
   }
 `;
 
-const CheckboxItem = ({ value, text, info, onSelect }: ICheckboxItem): JSX.Element => {
+const CheckboxItem = ({ value, text, info, onSelect }: CheckboxItemProps): JSX.Element => {
   return (
     <StyledCheckboxItemContainer alignItems="center">
       <Checkbox value={value} onSelect={onSelect} />

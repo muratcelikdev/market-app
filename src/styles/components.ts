@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 import Page from 'components/page/Page';
 
-interface IBox {
+interface FlexBoxProps {
   flexDirection?: 'row' | 'column';
   alignItems?: 'center' | 'flex-start' | 'flex-end';
   justifyContent?: 'center' | 'flex-start' | 'flex-end' | 'space-between' | 'space-around';
@@ -30,7 +30,7 @@ export const FilterColumn = styled.section`
 `;
 
 export const FlexBox = styled.div(
-  ({ flexDirection, alignItems, justifyContent, wrap, gap }: IBox) => css`
+  ({ flexDirection, alignItems, justifyContent, wrap, gap }: FlexBoxProps) => css`
     display: flex;
     flex-direction: ${flexDirection || 'row'};
     justify-content: ${justifyContent || 'flex-start'};

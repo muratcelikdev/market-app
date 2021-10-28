@@ -1,14 +1,11 @@
 import styled from 'styled-components';
 
 import * as colors from 'common/colors';
+import { BasketProps } from 'common/interfaces';
 
 import { FlexBoxCentered } from 'styles/components';
 
 import BasketIcon from 'assets/icons/basket.svg';
-
-interface IBasket {
-  price: number;
-}
 
 const StyledBasketButton = styled(FlexBoxCentered).attrs({ as: 'button' })`
   width: 129px;
@@ -40,7 +37,7 @@ const StyledIcon = styled.img`
   margin-right: 13.4px;
 `;
 
-const Basket = ({ price }: IBasket): JSX.Element => {
+const Basket = ({ price }: BasketProps): JSX.Element => {
   return (
     <StyledBasketButton>
       <StyledIcon src={BasketIcon} alt="Basket Icon" />

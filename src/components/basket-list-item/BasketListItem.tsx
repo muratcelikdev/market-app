@@ -1,16 +1,11 @@
 import styled from 'styled-components';
 
 import * as colors from 'common/colors';
+import { BasketListItemProps } from 'common/interfaces';
 
 import BasketListItemCounter from 'components/basket-list-item-counter/BasketListItemCounter';
 
 import { FlexBox } from 'styles/components';
-
-interface IBasketListItem {
-  productName: string;
-  price: number;
-  className?: string;
-}
 
 const StyledBasketItem = styled(FlexBox)`
   width: 100%;
@@ -34,7 +29,7 @@ const StyledProductPrice = styled(StyledProductText)`
   }
 `;
 
-const BasketListItem = ({ productName, price, className }: IBasketListItem): JSX.Element => {
+const BasketListItem = ({ productName, price, className }: BasketListItemProps): JSX.Element => {
   const handleCounterChange = (counter: number) => {
     // TODO: handle counter change logic
   };

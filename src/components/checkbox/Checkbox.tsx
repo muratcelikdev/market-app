@@ -2,22 +2,18 @@ import { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 
 import * as colors from 'common/colors';
+import { CheckboxProps } from 'common/interfaces';
 
 import { FlexBoxCentered } from 'styles/components';
 
 import CheckIcon from 'assets/icons/check.svg';
 
-interface ICheckbox {
-  value: any;
-  onSelect: (value: any) => void;
-}
-
-interface IStyledCheckbox {
+interface StyledCheckboxProps {
   selected?: boolean;
 }
 
 const StyledCheckbox = styled(FlexBoxCentered).attrs({ as: 'button' })(
-  ({ selected }: IStyledCheckbox) => css`
+  ({ selected }: StyledCheckboxProps) => css`
     width: 22px;
     height: 22px;
 
@@ -36,7 +32,7 @@ const StyledCheckIcon = styled.img`
   height: 7.3px;
 `;
 
-const Checkbox = ({ value, onSelect }: ICheckbox): JSX.Element => {
+const Checkbox = ({ value, onSelect }: CheckboxProps): JSX.Element => {
   const [selected, setSelected] = useState<boolean>(false);
 
   useEffect(() => {

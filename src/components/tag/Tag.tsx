@@ -1,21 +1,16 @@
 import styled, { css } from 'styled-components';
 
 import * as colors from 'common/colors';
+import { TagProps } from 'common/interfaces';
 
 import { FlexBoxCentered } from 'styles/components';
 
-interface ITag {
-  text: string;
-  active?: boolean;
-  onSelect: () => void;
-}
-
-interface IStyledTag {
+interface StyledTagProps {
   active?: boolean;
 }
 
 const StyledTag = styled(FlexBoxCentered).attrs({ as: 'button' })(
-  ({ active }: IStyledTag) => css`
+  ({ active }: StyledTagProps) => css`
     min-width: 61px;
     height: 30px;
 
@@ -30,7 +25,7 @@ const StyledTag = styled(FlexBoxCentered).attrs({ as: 'button' })(
 );
 
 const StyledTagText = styled.div(
-  ({ active }: IStyledTag) => css`
+  ({ active }: StyledTagProps) => css`
     font-size: 13px;
     font-weight: 600;
     line-height: 1.38;
@@ -39,7 +34,7 @@ const StyledTagText = styled.div(
   `
 );
 
-const Tag = ({ text, active, onSelect }: ITag): JSX.Element => {
+const Tag = ({ text, active, onSelect }: TagProps): JSX.Element => {
   return (
     <StyledTag active={active} onClick={onSelect}>
       <StyledTagText active={active}>{text}</StyledTagText>

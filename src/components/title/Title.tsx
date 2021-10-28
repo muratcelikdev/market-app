@@ -1,10 +1,7 @@
 import styled from 'styled-components';
 
 import * as colors from 'common/colors';
-
-interface ITitle {
-  text: string;
-}
+import { TitleProps } from 'common/interfaces';
 
 const StyledTitle = styled.h1`
   font-size: 20px;
@@ -14,6 +11,6 @@ const StyledTitle = styled.h1`
   color: ${colors.black300};
 `;
 
-const Title = ({ text }: ITitle): JSX.Element => <StyledTitle>{text}</StyledTitle>;
+const Title = ({ text }: TitleProps): JSX.Element => <StyledTitle>{text}</StyledTitle>;
 
 export default Title;

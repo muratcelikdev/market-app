@@ -2,12 +2,9 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import * as colors from 'common/colors';
+import { BasketListItemCounterProps } from 'common/interfaces';
 
 import { FlexBox, FlexBoxCentered } from 'styles/components';
-
-interface IBasketListItemCounter {
-  onCounterChange: (counter: number) => void;
-}
 
 const StyledBasketListItemCounter = styled(FlexBox)``;
 
@@ -38,7 +35,7 @@ const StyledCounterArea = styled(FlexBoxCentered)`
   background-color: ${colors.base};
 `;
 
-const BasketListItemCounter = ({ onCounterChange }: IBasketListItemCounter): JSX.Element => {
+const BasketListItemCounter = ({ onCounterChange }: BasketListItemCounterProps): JSX.Element => {
   const [counter, setCounter] = useState<number>(0);
 
   useEffect(() => {

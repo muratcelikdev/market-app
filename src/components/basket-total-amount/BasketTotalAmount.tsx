@@ -1,12 +1,9 @@
 import styled from 'styled-components';
 
 import * as colors from 'common/colors';
+import { BasketTotalAmountProps } from 'common/interfaces';
 
 import { FlexBoxCentered } from 'styles/components';
-
-interface IBasketTotalAmount {
-  className?: string;
-}
 
 const StyledBasketTotalAmount = styled(FlexBoxCentered)`
   width: 92px;
@@ -31,7 +28,7 @@ const StyledBasketTotalAmountText = styled.div`
   }
 `;
 
-const BasketTotalAmount = ({ className }: IBasketTotalAmount): JSX.Element => {
+const BasketTotalAmount = ({ className }: BasketTotalAmountProps): JSX.Element => {
   return (
     <StyledBasketTotalAmount className={className}>
       {/* TODO: get data from redux */}

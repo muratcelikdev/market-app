@@ -2,21 +2,11 @@ import { useState } from 'react';
 import styled from 'styled-components';
 
 import * as colors from 'common/colors';
+import { CheckboxGroupSearchableProps } from 'common/interfaces';
 
 import CheckboxGroup from 'components/checkbox-group/CheckboxGroup';
 import Searchbox from 'components/searchbox/Searchbox';
 import Subtitle from 'components/subtitle/Subtitle';
-
-interface ICheckboxGroupItem {
-  value: any;
-  text: string;
-  info: number | string;
-}
-
-interface ICheckboxGroupSearchable {
-  title: string;
-  options: Array<ICheckboxGroupItem>;
-}
 
 const StyledCheckboxGroupSearchable = styled.div`
   width: 296px;
@@ -35,7 +25,7 @@ const StyledSubtitle = styled(Subtitle)`
   margin-bottom: 12px;
 `;
 
-const CheckboxGroupSearchable = ({ title, options }: ICheckboxGroupSearchable) => {
+const CheckboxGroupSearchable = ({ title, options }: CheckboxGroupSearchableProps) => {
   const [searchText, setSearchText] = useState<string>('');
 
   return (

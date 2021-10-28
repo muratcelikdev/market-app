@@ -1,13 +1,9 @@
 import styled from 'styled-components';
 
 import * as colors from 'common/colors';
+import { ButtonProps } from 'common/interfaces';
 
 import { FlexBoxCentered } from 'styles/components';
-
-interface IButton {
-  text: string;
-  onClick: () => void;
-}
 
 const StyledButton = styled(FlexBoxCentered).attrs({ as: 'button' })`
   width: 124px;
@@ -28,7 +24,7 @@ const StyledButtonText = styled.div`
   color: ${colors.white};
 `;
 
-const Button = ({ text, onClick }: IButton): JSX.Element => {
+const Button = ({ text, onClick }: ButtonProps): JSX.Element => {
   return (
     <StyledButton onClick={onClick}>
       <StyledButtonText>{text}</StyledButtonText>
