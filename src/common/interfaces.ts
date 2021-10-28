@@ -60,6 +60,17 @@ export interface PageProps {
   className?: string;
 }
 
+export interface PaginationProps {
+  pageCount: number;
+  onPageChange: (pageIndex: number) => void;
+}
+
+export interface PaginationButtonProps {
+  type: 'Prev' | 'Next';
+  onClick: () => void;
+  className?: string;
+}
+
 export interface ProductProps {
   price: number;
   productName: string;
