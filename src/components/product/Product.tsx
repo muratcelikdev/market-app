@@ -19,6 +19,8 @@ const StyledProductContainer = styled(FlexBoxCentered)`
 `;
 
 const StyledProductPrice = styled.div`
+  align-self: flex-start;
+
   font-size: 14px;
   font-weight: bold;
   line-height: 1.43;
@@ -33,6 +35,8 @@ const StyledProductPrice = styled.div`
 `;
 
 const StyledProductName = styled.div`
+  height: 40px;
+
   font-size: 14px;
   font-weight: 600;
   line-height: 1.43;
