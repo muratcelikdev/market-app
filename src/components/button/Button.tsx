@@ -24,9 +24,9 @@ const StyledButtonText = styled.div`
   color: ${colors.white};
 `;
 
-const Button = ({ text, onClick }: ButtonProps): JSX.Element => {
+const Button = ({ text, onClick, className }: ButtonProps): JSX.Element => {
   return (
-    <StyledButton onClick={onClick}>
+    <StyledButton onClick={onClick} className={className}>
       <StyledButtonText>{text}</StyledButtonText>
     </StyledButton>
   );
