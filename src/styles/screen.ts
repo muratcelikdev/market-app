@@ -2,7 +2,7 @@ export const breakpoints = {
   largeScreenBreakpoint: 1200,
 };
 
-const intervals = {
+export const intervals = {
   smallScreenMaxWidth: breakpoints.largeScreenBreakpoint - 1,
   largeScreenMinWidth: breakpoints.largeScreenBreakpoint,
 };
