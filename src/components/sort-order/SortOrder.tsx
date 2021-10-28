@@ -5,6 +5,8 @@ import * as colors from 'common/colors';
 import Subtitle from 'components/subtitle/Subtitle';
 import RadioButtonGroup from 'components/radio-button-group/RadioButtonGroup';
 
+import screens from 'styles/screen';
+
 const SORT_ORDER_LIST = [
   {
     text: 'Price low to high',
@@ -37,6 +39,10 @@ const StyledSortOrder = styled.div`
   background-color: ${colors.white};
 
   box-shadow: 0 6px 24px 0 ${colors.shadow200};
+
+  @media ${screens.smallScreen} {
+    width: 100%;
+  }
 `;
 
 const SortOrder = () => {

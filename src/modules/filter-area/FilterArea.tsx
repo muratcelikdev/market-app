@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 
 import { BRANDS, TAGS } from 'common/constants';
@@ -7,7 +8,8 @@ import CheckboxGroupSearchable from 'components/checkbox-group-searchable/Checkb
 import SortOrder from 'components/sort-order/SortOrder';
 
 import { FilterColumn, FlexBoxCentered } from 'styles/components';
-import screens from 'styles/screen';
+import screens, { intervals } from 'styles/screen';
+import Modal from 'components/modal/Modal';
 
 const StyledFilterToggleButton = styled(FlexBoxCentered).attrs({ as: 'button' })`
   display: none;
@@ -27,15 +29,53 @@ const StyledFilterToggleButton = styled(FlexBoxCentered).attrs({ as: 'button' })
   }
 `;
 
-const FilterArea = () => (
-  <>
-    <StyledFilterToggleButton>Filter</StyledFilterToggleButton>
-    <FilterColumn>
-      <SortOrder />
-      <CheckboxGroupSearchable title="Brands" options={BRANDS} />
-      <CheckboxGroupSearchable title="Tags" options={TAGS} />
-    </FilterColumn>
-  </>
-);
+const StyledMobileFilterColumn = styled(FilterColumn)`
+  @media ${screens.smallScreen} {
+    display: flex;
+
+    width: 100%;
+    max-height: calc(100% - 50px);
+
+    padding: 16px;
+
+    overflow-y: scroll;
+  }
+`;
+
+const FilterArea = () => {
+  const [filterModalVisible, setFilterModalVisible] = useState<boolean>(false);
+
+  const handleFilterModalVisibility = () => {
+    if (window.innerWidth <= intervals.smallScreenMaxWidth) {
+      setFilterModalVisible(!filterModalVisible);
+    } else {
+      setFilterModalVisible(false);
+    }
+  };
+
+  return (
+    <>
+      <StyledFilterToggleButton onClick={handleFilterModalVisibility}>
+        Filter
+      </StyledFilterToggleButton>
+      <FilterColumn flexDirection="column">
+        <SortOrder />
+        <CheckboxGroupSearchable title="Brands" options={BRANDS} />
+        <CheckboxGroupSearchable title="Tags" options={TAGS} />
+      </FilterColumn>
+      <Modal
+        visible={filterModalVisible}
+        submitButtonText="Save"
+        onClose={() => setFilterModalVisible(false)}
+      >
+        <StyledMobileFilterColumn flexDirection="column">
+          <SortOrder />
+          <CheckboxGroupSearchable title="Brands" options={BRANDS} />
+          <CheckboxGroupSearchable title="Tags" options={TAGS} />
+        </StyledMobileFilterColumn>
+      </Modal>
+    </>
+  );
+};
 
 export default FilterArea;

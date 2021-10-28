@@ -30,16 +30,6 @@ export const MainPageLayout = styled(Page)`
   }
 `;
 
-export const FilterColumn = styled.section`
-  & > * {
-    margin-bottom: 24px;
-  }
-
-  @media ${screens.smallScreen} {
-    display: none;
-  }
-`;
-
 export const FlexBox = styled.div(
   ({ flexDirection, alignItems, justifyContent, wrap, gap }: FlexBoxProps) => css`
     display: flex;
@@ -54,4 +44,14 @@ export const FlexBox = styled.div(
 export const FlexBoxCentered = styled(FlexBox)`
   justify-content: center;
   align-items: center;
+`;
+
+export const FilterColumn = styled(FlexBox)`
+  & > * {
+    margin-bottom: 24px;
+  }
+
+  @media ${screens.smallScreen} {
+    display: none;
+  }
 `;
