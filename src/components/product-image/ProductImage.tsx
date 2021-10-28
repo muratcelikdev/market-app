@@ -2,11 +2,9 @@ import styled from 'styled-components';
 
 import * as colors from 'common/colors';
 
-const StyledProductImageWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+import { FlexBoxCentered } from 'styles/components';
 
+const StyledProductImageWrapper = styled(FlexBoxCentered)`
   width: 124px;
   height: 124px;
 

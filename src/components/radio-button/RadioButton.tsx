@@ -2,6 +2,8 @@ import styled, { css } from 'styled-components';
 
 import * as colors from 'common/colors';
 
+import { FlexBox, FlexBoxCentered } from 'styles/components';
+
 import BlueCheckIcon from 'assets/icons/blue-check.svg';
 
 interface IRadioButton {
@@ -14,19 +16,12 @@ interface IStyledRadioButton {
   checked?: boolean;
 }
 
-const StyledRadioButtonContainer = styled.button`
-  display: flex;
-  align-items: center;
-
+const StyledRadioButtonContainer = styled(FlexBox).attrs({ as: 'button' })`
   cursor: pointer;
 `;
 
-const StyledRadioButton = styled.div(
+const StyledRadioButton = styled(FlexBoxCentered)(
   ({ checked }: IStyledRadioButton) => css`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
     width: 22px;
     height: 22px;
 
@@ -54,7 +49,7 @@ const RadioButton = ({ checked, text, onSelect }: IRadioButton): JSX.Element => 
   };
 
   return (
-    <StyledRadioButtonContainer onClick={handleRadioButtonClick}>
+    <StyledRadioButtonContainer onClick={handleRadioButtonClick} alignItems="center">
       <StyledRadioButton checked={checked}>
         {checked && <StyledRadioButtonCheck src={BlueCheckIcon} alt="Blue Check Icon" />}
       </StyledRadioButton>

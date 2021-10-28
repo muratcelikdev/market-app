@@ -2,15 +2,13 @@ import styled from 'styled-components';
 
 import * as colors from 'common/colors';
 
+import { FlexBoxCentered } from 'styles/components';
+
 interface IBasketTotalAmount {
   className?: string;
 }
 
-const StyledBasketTotalAmount = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
+const StyledBasketTotalAmount = styled(FlexBoxCentered)`
   width: 92px;
   height: 51.1px;
 

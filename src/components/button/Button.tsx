@@ -2,16 +2,14 @@ import styled from 'styled-components';
 
 import * as colors from 'common/colors';
 
+import { FlexBoxCentered } from 'styles/components';
+
 interface IButton {
   text: string;
   onClick: () => void;
 }
 
-const StyledButton = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
+const StyledButton = styled(FlexBoxCentered).attrs({ as: 'button' })`
   width: 124px;
   height: 22px;
 

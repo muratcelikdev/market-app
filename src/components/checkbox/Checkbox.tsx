@@ -3,6 +3,8 @@ import styled, { css } from 'styled-components';
 
 import * as colors from 'common/colors';
 
+import { FlexBoxCentered } from 'styles/components';
+
 import CheckIcon from 'assets/icons/check.svg';
 
 interface ICheckbox {
@@ -14,12 +16,8 @@ interface IStyledCheckbox {
   selected?: boolean;
 }
 
-const StyledCheckbox = styled.button(
+const StyledCheckbox = styled(FlexBoxCentered).attrs({ as: 'button' })(
   ({ selected }: IStyledCheckbox) => css`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
     width: 22px;
     height: 22px;
 

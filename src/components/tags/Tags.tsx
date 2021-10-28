@@ -3,16 +3,14 @@ import styled from 'styled-components';
 
 import Tag from 'components/tag/Tag';
 
+import { FlexBox } from 'styles/components';
+
 interface ITags {
   tags: Array<string>;
   className?: string;
 }
 
-const StyledTagsContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-`;
+const StyledTagsContainer = styled(FlexBox)``;
 
 const Tags = ({ tags, className }: ITags): JSX.Element => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -26,7 +24,11 @@ const Tags = ({ tags, className }: ITags): JSX.Element => {
       />
     ));
 
-  return <StyledTagsContainer className={className}>{renderTags()}</StyledTagsContainer>;
+  return (
+    <StyledTagsContainer wrap gap={8} className={className}>
+      {renderTags()}
+    </StyledTagsContainer>
+  );
 };
 
 export default Tags;

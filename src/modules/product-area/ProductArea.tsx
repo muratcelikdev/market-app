@@ -6,19 +6,13 @@ import Title from 'components/title/Title';
 import Product from 'components/product/Product';
 import Tags from 'components/tags/Tags';
 
-const StyledSection = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+import { FlexBox } from 'styles/components';
 
+const StyledSection = styled(FlexBox).attrs({ as: 'section' })`
   width: 608px;
 `;
 
-const StyledProductsArea = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-
+const StyledProductsArea = styled(FlexBox)`
   width: 100%;
   max-width: 1008px;
 
@@ -32,10 +26,10 @@ const StyledTags = styled(Tags)`
 `;
 
 const ProductArea = () => (
-  <StyledSection>
+  <StyledSection flexDirection="column">
     <Title text="Products" />
     <StyledTags tags={['mug', 'shirt']} />
-    <StyledProductsArea>
+    <StyledProductsArea wrap gap={24}>
       {/* TODO: get product data from redux dynamically */}
       <Product price={14.99} productName="Gorgeous Office Mug" />
       <Product price={14.99} productName="Gorgeous Office Mug" />

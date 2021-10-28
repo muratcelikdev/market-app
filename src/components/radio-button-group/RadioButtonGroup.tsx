@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 import RadioButton from 'components/radio-button/RadioButton';
 
+import { FlexBox } from 'styles/components';
+
 interface IRadioButton {
   text: string;
   value: any;
@@ -13,11 +15,7 @@ interface IRadioButtonGrouo {
   onChange: (value: any) => void;
 }
 
-const StyledRadioButtonGroup = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-`;
+const StyledRadioButtonGroup = styled(FlexBox)``;
 
 const RadioButtonGroup = ({ options, onChange }: IRadioButtonGrouo): JSX.Element => {
   const [selectedOption, setSelectedOption] = useState<any>(null);
@@ -37,7 +35,11 @@ const RadioButtonGroup = ({ options, onChange }: IRadioButtonGrouo): JSX.Element
       />
     ));
 
-  return <StyledRadioButtonGroup>{renderOptions()}</StyledRadioButtonGroup>;
+  return (
+    <StyledRadioButtonGroup flexDirection="column" gap={12}>
+      {renderOptions()}
+    </StyledRadioButtonGroup>
+  );
 };
 
 export default RadioButtonGroup;

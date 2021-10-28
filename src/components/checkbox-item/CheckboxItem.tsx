@@ -4,6 +4,8 @@ import * as colors from 'common/colors';
 
 import Checkbox from 'components/checkbox/Checkbox';
 
+import { FlexBox } from 'styles/components';
+
 interface ICheckboxItem {
   value: any;
   text: string;
@@ -11,10 +13,7 @@ interface ICheckboxItem {
   onSelect: (value: any) => void;
 }
 
-const StyledCheckboxItemContainer = styled.div`
-  display: flex;
-  align-items: center;
-`;
+const StyledCheckboxItemContainer = styled(FlexBox)``;
 
 const StyledCheckboxContent = styled(StyledCheckboxItemContainer)`
   margin-left: 8px;
@@ -46,7 +45,7 @@ const StyledCheckboxInfo = styled(StyledCheckboxText)`
 
 const CheckboxItem = ({ value, text, info, onSelect }: ICheckboxItem): JSX.Element => {
   return (
-    <StyledCheckboxItemContainer>
+    <StyledCheckboxItemContainer alignItems="center">
       <Checkbox value={value} onSelect={onSelect} />
       <StyledCheckboxContent>
         <StyledCheckboxText>{text}</StyledCheckboxText>

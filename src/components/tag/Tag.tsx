@@ -2,6 +2,8 @@ import styled, { css } from 'styled-components';
 
 import * as colors from 'common/colors';
 
+import { FlexBoxCentered } from 'styles/components';
+
 interface ITag {
   text: string;
   active?: boolean;
@@ -12,12 +14,8 @@ interface IStyledTag {
   active?: boolean;
 }
 
-const StyledTag = styled.button(
+const StyledTag = styled(FlexBoxCentered).attrs({ as: 'button' })(
   ({ active }: IStyledTag) => css`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
     min-width: 61px;
     height: 30px;
 

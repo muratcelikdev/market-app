@@ -5,24 +5,19 @@ import * as colors from 'common/colors';
 import Basket from 'components/basket/Basket';
 import Page from 'components/page/Page';
 
+import { FlexBox, FlexBoxCentered } from 'styles/components';
+
 import Logo from 'assets/icons/logo.svg';
 
-const StyledNavbarContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
+const StyledNavbarContainer = styled(FlexBoxCentered)`
   width: 100%;
   height: 76.6px;
 
   background-color: ${colors.base};
 `;
 
-const StyledNavbar = styled.nav`
+const StyledNavbar = styled(FlexBox).attrs({ as: 'nav' })`
   position: relative;
-
-  display: flex;
-  justify-content: flex-end;
 `;
 
 const StyledLogo = styled.img`
@@ -40,7 +35,7 @@ const Navbar = (): JSX.Element => {
   return (
     <StyledNavbarContainer>
       <Page>
-        <StyledNavbar>
+        <StyledNavbar justifyContent="flex-end">
           <StyledLogo src={Logo} alt="logo" />
           <Basket price={39.97} />
         </StyledNavbar>

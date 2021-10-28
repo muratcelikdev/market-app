@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 import CheckboxItem from 'components/checkbox-item/CheckboxItem';
 
+import { FlexBox } from 'styles/components';
+
 interface ICheckboxGroupItem {
   value: any;
   text: string;
@@ -13,11 +15,7 @@ interface ICheckboxGroup {
   searchText: string;
 }
 
-const StyledCheckboxGroupContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-
+const StyledCheckboxGroupContainer = styled(FlexBox)`
   max-height: 130px;
 
   padding: 4px;
@@ -51,7 +49,11 @@ const CheckboxGroup = ({ options, searchText }: ICheckboxGroup): JSX.Element => 
     ));
   };
 
-  return <StyledCheckboxGroupContainer>{renderOptions()}</StyledCheckboxGroupContainer>;
+  return (
+    <StyledCheckboxGroupContainer flexDirection="column" gap={14}>
+      {renderOptions()}
+    </StyledCheckboxGroupContainer>
+  );
 };
 
 export default CheckboxGroup;

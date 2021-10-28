@@ -2,17 +2,15 @@ import styled from 'styled-components';
 
 import * as colors from 'common/colors';
 
+import { FlexBoxCentered } from 'styles/components';
+
 import BasketIcon from 'assets/icons/basket.svg';
 
 interface IBasket {
   price: number;
 }
 
-const StyledBasketButton = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
+const StyledBasketButton = styled(FlexBoxCentered).attrs({ as: 'button' })`
   width: 129px;
   height: 76.6px;
 

@@ -3,19 +3,15 @@ import styled from 'styled-components';
 
 import * as colors from 'common/colors';
 
+import { FlexBox, FlexBoxCentered } from 'styles/components';
+
 interface IBasketListItemCounter {
   onCounterChange: (counter: number) => void;
 }
 
-const StyledBasketListItemCounter = styled.div`
-  display: flex;
-`;
+const StyledBasketListItemCounter = styled(FlexBox)``;
 
-const StyledCounterButton = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
+const StyledCounterButton = styled(FlexBoxCentered).attrs({ as: 'button' })`
   width: 32px;
   height: 32.7px;
 
@@ -35,11 +31,7 @@ const StyledCounterButtonText = styled(StyledCounterText)`
   color: ${colors.base};
 `;
 
-const StyledCounterArea = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
+const StyledCounterArea = styled(FlexBoxCentered)`
   width: 32px;
   height: 32.7px;
 

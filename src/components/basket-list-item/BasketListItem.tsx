@@ -4,25 +4,19 @@ import * as colors from 'common/colors';
 
 import BasketListItemCounter from 'components/basket-list-item-counter/BasketListItemCounter';
 
+import { FlexBox } from 'styles/components';
+
 interface IBasketListItem {
   productName: string;
   price: number;
   className?: string;
 }
 
-const StyledBasketItem = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
+const StyledBasketItem = styled(FlexBox)`
   width: 100%;
 `;
 
-const StyledProductInfoContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 2.05px;
-`;
+const StyledProductInfoContainer = styled(FlexBox)``;
 
 const StyledProductText = styled.div`
   font-size: 14px;
@@ -46,8 +40,8 @@ const BasketListItem = ({ productName, price, className }: IBasketListItem): JSX
   };
 
   return (
-    <StyledBasketItem className={className}>
-      <StyledProductInfoContainer>
+    <StyledBasketItem justifyContent="space-between" alignItems="center" className={className}>
+      <StyledProductInfoContainer flexDirection="column" gap={2.05}>
         <StyledProductText>{productName}</StyledProductText>
         <StyledProductPrice>{price}</StyledProductPrice>
       </StyledProductInfoContainer>
