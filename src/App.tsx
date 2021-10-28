@@ -5,7 +5,7 @@ import BasketList from 'components/basket-list/BasketList';
 import Navbar from 'components/navbar/Navbar';
 
 import FilterArea from 'modules/filter-area/FilterArea';
-import ProductArea from 'modules/product-area/ProductArea';
+import ProductAreaContainer from 'modules/product-area/ProductAreaContainer';
 
 import { AppLayout, MainPageLayout } from 'styles/components';
 import screens from 'styles/screen';
@@ -26,7 +26,7 @@ const App = () => {
   useEffect(() => {
     dispatch(getItems());
     dispatch(getCompanies());
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
@@ -34,7 +34,7 @@ const App = () => {
       <AppLayout>
         <MainPageLayout>
           <FilterArea />
-          <ProductArea />
+          <ProductAreaContainer />
           <StyledBasketList />
         </MainPageLayout>
       </AppLayout>

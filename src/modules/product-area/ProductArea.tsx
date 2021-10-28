@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 
 import * as colors from 'common/colors';
@@ -5,6 +6,7 @@ import * as colors from 'common/colors';
 import Title from 'components/title/Title';
 import Product from 'components/product/Product';
 import Tags from 'components/tags/Tags';
+import Pagination from 'components/pagination/Pagination';
 
 import { FlexBox } from 'styles/components';
 import screens from 'styles/screen';
@@ -36,30 +38,25 @@ const StyledTags = styled(Tags)`
   margin: 16px 0;
 `;
 
-const ProductArea = () => (
-  <StyledSection flexDirection="column">
-    <Title text="Products" />
-    <StyledTags tags={['mug', 'shirt']} />
-    <StyledProductsArea wrap gap={24}>
-      {/* TODO: get product data from redux dynamically */}
-      <Product price={14.99} productName="Gorgeous Office Mug" />
-      <Product price={14.99} productName="Gorgeous Office Mug" />
-      <Product price={14.99} productName="Gorgeous Office Mug" />
-      <Product price={14.99} productName="Gorgeous Office Mug" />
-      <Product price={14.99} productName="Gorgeous Office Mug" />
-      <Product price={14.99} productName="Gorgeous Office Mug" />
-      <Product price={14.99} productName="Gorgeous Office Mug" />
-      <Product price={14.99} productName="Gorgeous Office Mug" />
-      <Product price={14.99} productName="Gorgeous Office Mug" />
-      <Product price={14.99} productName="Gorgeous Office Mug" />
-      <Product price={14.99} productName="Gorgeous Office Mug" />
-      <Product price={14.99} productName="Gorgeous Office Mug" />
-      <Product price={14.99} productName="Gorgeous Office Mug" />
-      <Product price={14.99} productName="Gorgeous Office Mug" />
-      <Product price={14.99} productName="Gorgeous Office Mug" />
-      <Product price={14.99} productName="Gorgeous Office Mug" />
-    </StyledProductsArea>
-  </StyledSection>
-);
+const ProductArea = ({ pages }) => {
+  const [currentPageIndex, setCurrentPageIndex] = useState<number>(0);
+
+  return (
+    <StyledSection flexDirection="column">
+      <Title text="Products" />
+      <StyledTags tags={['mug', 'shirt']} />
+      <StyledProductsArea wrap gap={24}>
+        {pages.length > 0 &&
+          pages[currentPageIndex].map(({ name, price }, index) => (
+            <Product price={price} productName={name} key={index} />
+          ))}
+      </StyledProductsArea>
+      <Pagination
+        pageCount={pages.length}
+        onPageChange={(pageIndex: number) => setCurrentPageIndex(pageIndex)}
+      />
+    </StyledSection>
+  );
+};
 
 export default ProductArea;
