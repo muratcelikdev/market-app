@@ -7,9 +7,16 @@ import Product from 'components/product/Product';
 import Tags from 'components/tags/Tags';
 
 import { FlexBox } from 'styles/components';
+import screens from 'styles/screen';
 
 const StyledSection = styled(FlexBox).attrs({ as: 'section' })`
   width: 608px;
+
+  @media ${screens.smallScreen} {
+    width: 100%;
+
+    padding: 16px;
+  }
 `;
 
 const StyledProductsArea = styled(FlexBox)`
@@ -19,6 +26,10 @@ const StyledProductsArea = styled(FlexBox)`
   padding: 22px 20px;
 
   background-color: ${colors.white};
+
+  @media ${screens.smallScreen} {
+    justify-content: space-between;
+  }
 `;
 
 const StyledTags = styled(Tags)`

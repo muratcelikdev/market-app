@@ -2,6 +2,8 @@ import styled, { css } from 'styled-components';
 
 import Page from 'components/page/Page';
 
+import screens from 'styles/screen';
+
 interface FlexBoxProps {
   flexDirection?: 'row' | 'column';
   alignItems?: 'center' | 'flex-start' | 'flex-end';
@@ -21,11 +23,20 @@ export const MainPageLayout = styled(Page)`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  @media ${screens.smallScreen} {
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 export const FilterColumn = styled.section`
   & > * {
     margin-bottom: 24px;
+  }
+
+  @media ${screens.smallScreen} {
+    display: none;
   }
 `;
 

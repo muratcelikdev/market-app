@@ -4,6 +4,7 @@ import * as colors from 'common/colors';
 import { BasketProps } from 'common/interfaces';
 
 import { FlexBoxCentered } from 'styles/components';
+import screens from 'styles/screen';
 
 import BasketIcon from 'assets/icons/basket.svg';
 
@@ -14,6 +15,10 @@ const StyledBasketButton = styled(FlexBoxCentered).attrs({ as: 'button' })`
   padding: 25px;
 
   background-color: ${colors.baseDark};
+
+  @media ${screens.smallScreen} {
+    height: 35px;
+  }
 `;
 
 const StyledPriceText = styled.span`

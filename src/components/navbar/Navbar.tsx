@@ -6,6 +6,7 @@ import Basket from 'components/basket/Basket';
 import Page from 'components/page/Page';
 
 import { FlexBox, FlexBoxCentered } from 'styles/components';
+import screens from 'styles/screen';
 
 import Logo from 'assets/icons/logo.svg';
 
@@ -14,6 +15,10 @@ const StyledNavbarContainer = styled(FlexBoxCentered)`
   height: 76.6px;
 
   background-color: ${colors.base};
+
+  @media ${screens.smallScreen} {
+    height: 50px;
+  }
 `;
 
 const StyledNavbar = styled(FlexBox).attrs({ as: 'nav' })`
@@ -29,6 +34,16 @@ const StyledLogo = styled.img`
   height: 40.3px;
 
   transform: translate(-50%, -50%);
+
+  @media ${screens.smallScreen} {
+    top: 50%;
+    left: 16px;
+
+    width: 70px;
+    height: 20px;
+
+    transform: translate(0, -50%);
+  }
 `;
 
 const Navbar = (): JSX.Element => {
