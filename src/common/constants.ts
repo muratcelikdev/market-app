@@ -43,3 +43,7 @@ export const TAGS = [
     info: 10,
   },
 ];
+
+export const Z_INDEX = {
+  MODAL: 1005,
+};
