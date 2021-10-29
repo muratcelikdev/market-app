@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 interface StateProps {
   sorting: 'low' | 'high' | 'new' | 'old' | null;
-  brands: Array<string>;
+  brands: Array<any>;
   tags: Array<string>;
   itemType: string | null;
 }
@@ -21,6 +21,9 @@ const filterSlice = createSlice({
     setSorting: (state, action) => {
       state.sorting = action.payload;
     },
+    setBrands: (state, action) => {
+      state.brands = action.payload;
+    },
     setItemType: (state, action) => {
       state.itemType = action.payload;
     },
@@ -28,6 +31,6 @@ const filterSlice = createSlice({
 });
 
 export const { actions } = filterSlice;
-export const { setSorting, setItemType } = actions;
+export const { setSorting, setBrands, setItemType } = actions;
 
 export default filterSlice.reducer;

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import styled, { css } from 'styled-components';
 
 import * as colors from 'common/colors';
@@ -35,15 +35,13 @@ const StyledCheckIcon = styled.img`
 const Checkbox = ({ value, onSelect }: CheckboxProps): JSX.Element => {
   const [selected, setSelected] = useState<boolean>(false);
 
-  useEffect(() => {
-    onSelect({
-      value,
-      selected,
-    });
-  }, [selected, onSelect, value]);
+  const handleSelection = (selection) => {
+    setSelected(selection);
+    onSelect(value);
+  };
 
   return (
-    <StyledCheckbox selected={selected} onClick={() => setSelected(!selected)}>
+    <StyledCheckbox selected={selected} onClick={() => handleSelection(!selected)}>
       {selected && <StyledCheckIcon src={CheckIcon} alt="Check Icon" />}
     </StyledCheckbox>
   );

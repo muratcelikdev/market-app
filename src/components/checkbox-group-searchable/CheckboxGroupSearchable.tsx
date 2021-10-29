@@ -31,8 +31,23 @@ const StyledSubtitle = styled(Subtitle)`
   margin-bottom: 12px;
 `;
 
-const CheckboxGroupSearchable = ({ title, options }: CheckboxGroupSearchableProps) => {
+const CheckboxGroupSearchable = ({ title, options, onSelection }: CheckboxGroupSearchableProps) => {
   const [searchText, setSearchText] = useState<string>('');
+  const [selectedCheckboxValues, setSelectedCheckboxValues] = useState<any[]>([]);
+
+  const handleSelection = (value) => {
+    let selectedValues: any[] = [...selectedCheckboxValues];
+
+    if (selectedCheckboxValues.includes(value)) {
+      const indexOfSelectedBrand = selectedValues.indexOf(value);
+      selectedValues.splice(indexOfSelectedBrand, 1);
+    } else {
+      selectedValues = [...selectedCheckboxValues, value];
+    }
+
+    setSelectedCheckboxValues(selectedValues);
+    onSelection(selectedValues);
+  };
 
   return (
     <>
@@ -42,7 +57,11 @@ const CheckboxGroupSearchable = ({ title, options }: CheckboxGroupSearchableProp
           placeholderText="Search brand"
           onSearch={(value: string) => setSearchText(value)}
         />
-        <CheckboxGroup options={options} searchText={searchText} />
+        <CheckboxGroup
+          options={options}
+          searchText={searchText}
+          onSelect={(value) => handleSelection(value)}
+        />
       </StyledCheckboxGroupSearchable>
     </>
   );

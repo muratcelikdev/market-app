@@ -43,17 +43,20 @@ export interface CheckboxItemProps extends CheckboxGroupItemProps {
 export interface CheckboxGroupProps {
   options: Array<CheckboxGroupItemProps>;
   searchText: string;
+  onSelect: (value: any) => void;
 }
 
 export interface CheckboxGroupSearchableProps {
   title: string;
   options: Array<CheckboxGroupItemProps>;
+  onSelection: (values: any[]) => void;
 }
 
 export interface FilterAreaProps {
   items: Array<ItemProps>;
   tags: Array<string>;
   brands: Array<string>;
+  setBrands: (value: string) => void;
 }
 
 export interface ModalProps {
