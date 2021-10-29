@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import styled from 'styled-components';
 
-import BasketList from 'components/basket-list/BasketList';
+import BasketListContainer from 'components/basket-list/BasketListContainer';
 import Navbar from 'components/navbar/Navbar';
 
 import FilterAreaContainer from 'modules/filter-area/FilterAreaContainer';
@@ -14,7 +14,7 @@ import { useAppDispatch } from 'state/hooks';
 import { getItems } from 'state/slices/itemsSlice';
 import { getCompanies } from 'state/slices/companiesSlice';
 
-const StyledBasketList = styled(BasketList)`
+const StyledBasketList = styled(BasketListContainer)`
   @media ${screens.smallScreen} {
     display: none;
   }

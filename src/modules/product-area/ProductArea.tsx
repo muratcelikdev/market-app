@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import * as colors from 'common/colors';
 
 import Title from 'components/title/Title';
-import Product from 'components/product/Product';
+import ProductContainer from 'components/product/ProductContainer';
 import Tags from 'components/tags/Tags';
 import Pagination from 'components/pagination/Pagination';
 
@@ -47,8 +47,8 @@ const ProductArea = ({ pages, itemTypes, setItemType }) => {
       <StyledTags tags={itemTypes} onSelect={(value) => setItemType(value)} />
       <StyledProductsArea wrap gap={24}>
         {pages.length > 0 &&
-          pages[currentPageIndex].map(({ name, price }, index) => (
-            <Product price={price} productName={name} key={index} />
+          pages[currentPageIndex].map(({ name, price, slug }, index) => (
+            <ProductContainer price={price} productName={name} slug={slug} key={index} />
           ))}
       </StyledProductsArea>
       <Pagination

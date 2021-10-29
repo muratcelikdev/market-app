@@ -1,3 +1,4 @@
+import { BasketItemProps } from 'state/slices/basketSlice';
 import { ItemProps } from 'state/slices/itemsSlice';
 
 export interface BasketProps {
@@ -6,18 +7,26 @@ export interface BasketProps {
 
 export interface BasketListItemProps extends BasketProps {
   productName: string;
+  slug: string;
+  products: any[];
+  increaseProduct: (product: ProductProps) => void;
+  decreaseProduct: (slug: string) => void;
   className?: string;
 }
 
 export interface BasketListItemCounterProps {
-  onCounterChange: (counter: number) => void;
+  onIncrease: () => void;
+  onDecrease: () => void;
+  count: number;
 }
 
 export interface BasketTotalAmountProps {
   className?: string;
 }
 
-export interface BasketListProps extends BasketTotalAmountProps {}
+export interface BasketListProps extends BasketTotalAmountProps {
+  products: Array<ProductProps>;
+}
 
 export interface ButtonProps {
   text: string;
@@ -86,6 +95,11 @@ export interface PaginationButtonProps {
 export interface ProductProps {
   price: number;
   productName: string;
+  slug: string;
+}
+
+export interface ProductItemProps extends ProductProps {
+  increaseProduct: (product: ProductProps) => void;
 }
 
 export interface RadioButtonProps {

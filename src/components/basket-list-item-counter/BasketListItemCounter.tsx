@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import * as colors from 'common/colors';
@@ -35,21 +34,17 @@ const StyledCounterArea = styled(FlexBoxCentered)`
   background-color: ${colors.base};
 `;
 
-const BasketListItemCounter = ({ onCounterChange }: BasketListItemCounterProps): JSX.Element => {
-  const [counter, setCounter] = useState<number>(0);
-
-  useEffect(() => {
-    onCounterChange(counter);
-  }, [counter, onCounterChange]);
-
+const BasketListItemCounter = ({
+  onIncrease,
+  onDecrease,
+  count,
+}: BasketListItemCounterProps): JSX.Element => {
   const increaseCounter = () => {
-    setCounter(counter + 1);
+    onIncrease();
   };
 
   const decreaseCounter = () => {
-    if (counter > 0) {
-      setCounter(counter - 1 < 0 ? 0 : counter - 1);
-    }
+    onDecrease();
   };
 
   return (
@@ -58,7 +53,7 @@ const BasketListItemCounter = ({ onCounterChange }: BasketListItemCounterProps):
         <StyledCounterButtonText>-</StyledCounterButtonText>
       </StyledCounterButton>
       <StyledCounterArea>
-        <StyledCounterText>{counter}</StyledCounterText>
+        <StyledCounterText>{count}</StyledCounterText>
       </StyledCounterArea>
       <StyledCounterButton onClick={increaseCounter}>
         <StyledCounterButtonText>+</StyledCounterButtonText>

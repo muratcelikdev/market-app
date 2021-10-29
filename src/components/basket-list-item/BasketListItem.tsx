@@ -29,10 +29,16 @@ const StyledProductPrice = styled(StyledProductText)`
   }
 `;
 
-const BasketListItem = ({ productName, price, className }: BasketListItemProps): JSX.Element => {
-  const handleCounterChange = (counter: number) => {
-    // TODO: handle counter change logic
-  };
+const BasketListItem = ({
+  productName,
+  price,
+  slug,
+  products,
+  increaseProduct,
+  decreaseProduct,
+  className,
+}: BasketListItemProps): JSX.Element => {
+  const { count } = products.find((product) => product.slug === slug);
 
   return (
     <StyledBasketItem justifyContent="space-between" alignItems="center" className={className}>
@@ -40,7 +46,11 @@ const BasketListItem = ({ productName, price, className }: BasketListItemProps):
         <StyledProductText>{productName}</StyledProductText>
         <StyledProductPrice>{price}</StyledProductPrice>
       </StyledProductInfoContainer>
-      <BasketListItemCounter onCounterChange={handleCounterChange} />
+      <BasketListItemCounter
+        onIncrease={() => increaseProduct({ productName, price, slug })}
+        onDecrease={() => decreaseProduct(slug)}
+        count={count}
+      />
     </StyledBasketItem>
   );
 };

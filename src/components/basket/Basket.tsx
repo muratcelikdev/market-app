@@ -5,7 +5,7 @@ import * as colors from 'common/colors';
 import { BasketProps } from 'common/interfaces';
 
 import Modal from 'components/modal/Modal';
-import BasketList from 'components/basket-list/BasketList';
+import BasketListContainer from 'components/basket-list/BasketListContainer';
 
 import { FlexBoxCentered } from 'styles/components';
 import screens, { intervals } from 'styles/screen';
@@ -68,7 +68,7 @@ const Basket = ({ price }: BasketProps): JSX.Element => {
         submitButtonText="Close"
         onClose={() => setBasketListModalVisible(false)}
       >
-        <BasketList />
+        <BasketListContainer />
       </Modal>
     </>
   );

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import * as colors from 'common/colors';
 import { BasketListProps } from 'common/interfaces';
 
-import BasketListItem from 'components/basket-list-item/BasketListItem';
+import BasketListItemContainer from 'components/basket-list-item/BasketListItemContainer';
 import BasketTotalAmount from 'components/basket-total-amount/BasketTotalAmount';
 
 import { FlexBox } from 'styles/components';
@@ -36,7 +36,7 @@ const StyledBasketListItemContainer = styled(FlexBox)`
   }
 `;
 
-const StyledBasketListItem = styled(BasketListItem)`
+const StyledBasketListItem = styled(BasketListItemContainer)`
   padding: 20.4px 0;
 
   border-bottom: 1px solid ${colors.grey160};
@@ -50,7 +50,7 @@ const StyledBasketTotalAmount = styled(BasketTotalAmount)`
   margin-top: 16.4px;
 `;
 
-const BasketList = ({ className }: BasketListProps) => {
+const BasketList = ({ className, products }: BasketListProps) => {
   return (
     <StyledBasketList
       className={className}
@@ -59,10 +59,10 @@ const BasketList = ({ className }: BasketListProps) => {
       alignItems="flex-end"
     >
       <StyledBasketListItemContainer flexDirection="column">
-        {/* TODO: implement dynamic basket list item logic */}
-        <StyledBasketListItem productName="Example Product" price={14.99} />
-        <StyledBasketListItem productName="Example Product" price={14.99} />
-        <StyledBasketListItem productName="Example Product" price={14.99} />
+        {products.length > 0 &&
+          products.map(({ productName, price, slug }) => (
+            <StyledBasketListItem productName={productName} price={price} slug={slug} />
+          ))}
       </StyledBasketListItemContainer>
       <StyledBasketTotalAmount />
     </StyledBasketList>

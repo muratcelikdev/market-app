@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import * as colors from 'common/colors';
-import { ProductProps } from 'common/interfaces';
+import { ProductItemProps } from 'common/interfaces';
 
 import ProductImage from 'components/product-image/ProductImage';
 import Button from 'components/button/Button';
@@ -46,13 +46,13 @@ const StyledProductName = styled.div`
   margin-bottom: 8px;
 `;
 
-const Product = ({ price, productName }: ProductProps): JSX.Element => {
+const Product = ({ price, productName, slug, increaseProduct }: ProductItemProps): JSX.Element => {
   return (
     <StyledProductContainer flexDirection="column">
       <ProductImage />
       <StyledProductPrice>{price}</StyledProductPrice>
       <StyledProductName>{productName}</StyledProductName>
-      <Button text="Add" onClick={() => {}} />
+      <Button text="Add" onClick={() => increaseProduct({ productName, price, slug })} />
     </StyledProductContainer>
   );
 };
