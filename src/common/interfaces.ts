@@ -1,3 +1,5 @@
+import { ItemProps } from 'state/slices/itemsSlice';
+
 export interface BasketProps {
   price: number;
 }
@@ -46,6 +48,12 @@ export interface CheckboxGroupProps {
 export interface CheckboxGroupSearchableProps {
   title: string;
   options: Array<CheckboxGroupItemProps>;
+}
+
+export interface FilterAreaProps {
+  items: Array<ItemProps>;
+  tags: Array<string>;
+  brands: Array<string>;
 }
 
 export interface ModalProps {
