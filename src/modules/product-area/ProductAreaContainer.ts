@@ -7,7 +7,37 @@ import { setItemType } from 'state/slices/filterSlice';
 
 const mapStateToProps = (state) => {
   const sliceItemListIntoChunks = () => {
-    const list = [...state.items.itemList];
+    const filterProducts = () => {
+      const { sorting, brands, tags, itemType } = state.filter;
+      const list = [...state.items.itemList];
+
+      let filtered: any[] = [];
+
+      filtered = list.filter(
+        (item) =>
+          (itemType && item.itemType === itemType) ||
+          (brands.length > 0 && brands.includes(item.manufacturer)) ||
+          (tags.length > 0 && item.tags.some((tag) => tags.includes(tag)))
+      );
+
+      filtered = filtered.length > 0 ? filtered : list;
+
+      if (sorting === 'low') {
+        filtered.sort((firstProduct, secondProduct) => firstProduct.price - secondProduct.price);
+      } else if (sorting === 'high') {
+        filtered.sort((firstProduct, secondProduct) => secondProduct.price - firstProduct.price);
+      }
+      if (sorting === 'new') {
+        filtered.sort((firstProduct, secondProduct) => secondProduct.added - firstProduct.added);
+      }
+      if (sorting === 'old') {
+        filtered.sort((firstProduct, secondProduct) => firstProduct.added - secondProduct.added);
+      }
+
+      return filtered;
+    };
+
+    const list = filterProducts();
 
     const chunkArr: any[] = [];
 
