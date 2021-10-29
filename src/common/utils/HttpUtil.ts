@@ -4,10 +4,8 @@ class HttpUtil {
   private axios: any;
 
   constructor() {
-    const baseURL = 'http://localhost:5000/';
-
     this.axios = axios.create({
-      baseURL,
+      baseURL: process.env.REACT_APP_BASE_URL,
     });
   }
 
