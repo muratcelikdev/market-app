@@ -117,6 +117,7 @@ export interface RadioButtonComponentProps {
 
 export interface RadioButtonGroupProps {
   options: Array<RadioButtonProps>;
+  selectedOption: 'low' | 'high' | 'new' | 'old' | null;
   onChange: (value: any) => void;
 }
 

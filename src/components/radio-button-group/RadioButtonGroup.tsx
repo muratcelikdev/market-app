@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 
 import { RadioButtonGroupProps, RadioButtonProps } from 'common/interfaces';
@@ -9,20 +9,16 @@ import { FlexBox } from 'styles/components';
 
 const StyledRadioButtonGroup = styled(FlexBox)``;
 
-const RadioButtonGroup = ({ options, onChange }: RadioButtonGroupProps): JSX.Element => {
-  const [selectedOption, setSelectedOption] = useState<any>(null);
-
-  useEffect(() => {
-    if (selectedOption) {
-      onChange(selectedOption);
-    }
-  }, [selectedOption, onChange]);
-
+const RadioButtonGroup = ({
+  options,
+  selectedOption,
+  onChange,
+}: RadioButtonGroupProps): JSX.Element => {
   const renderOptions = () =>
     options.map(({ text, value }: RadioButtonProps) => (
       <RadioButton
         text={text}
-        onSelect={() => setSelectedOption(value)}
+        onSelect={() => onChange(value)}
         checked={value === selectedOption}
       />
     ));

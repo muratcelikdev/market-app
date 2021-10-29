@@ -5,6 +5,10 @@ import SortOrder from 'components/sort-order/SortOrder';
 
 import { setSorting } from 'state/slices/filterSlice';
 
+const mapStateToProps = (state) => ({
+  sorting: state.filter.sorting,
+});
+
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
     {
@@ -13,4 +17,4 @@ const mapDispatchToProps = (dispatch) =>
     dispatch
   );
 
-export default connect(undefined, mapDispatchToProps)(SortOrder);
+export default connect(mapStateToProps, mapDispatchToProps)(SortOrder);
