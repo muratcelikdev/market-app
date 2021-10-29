@@ -2,11 +2,13 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import itemsSlice from 'state/slices/itemsSlice';
 import companiesSlice from 'state/slices/companiesSlice';
+import filterSlice from 'state/slices/filterSlice';
 
 const store = configureStore({
   reducer: {
     items: itemsSlice,
     companies: companiesSlice,
+    filter: filterSlice,
   },
 });
 

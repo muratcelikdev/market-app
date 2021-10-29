@@ -1,6 +1,9 @@
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import ProductArea from 'modules/product-area/ProductArea';
+
+import { setItemType } from 'state/slices/filterSlice';
 
 const mapStateToProps = (state) => {
   const sliceItemListIntoChunks = () => {
@@ -22,4 +25,12 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(ProductArea);
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(
+    {
+      setItemType,
+    },
+    dispatch
+  );
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductArea);

@@ -120,6 +120,7 @@ export interface TagProps {
 export interface TagsProps {
   tags: Array<string>;
   className?: string;
+  onSelect: (value: string | null) => void;
 }
 
 export interface TitleProps {
