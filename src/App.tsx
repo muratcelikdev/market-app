@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import BasketList from 'components/basket-list/BasketList';
 import Navbar from 'components/navbar/Navbar';
 
-import FilterArea from 'modules/filter-area/FilterArea';
+import FilterAreaContainer from 'modules/filter-area/FilterAreaContainer';
 import ProductAreaContainer from 'modules/product-area/ProductAreaContainer';
 
 import { AppLayout, MainPageLayout } from 'styles/components';
@@ -33,7 +33,7 @@ const App = () => {
       <Navbar />
       <AppLayout>
         <MainPageLayout>
-          <FilterArea />
+          <FilterAreaContainer />
           <ProductAreaContainer />
           <StyledBasketList />
         </MainPageLayout>

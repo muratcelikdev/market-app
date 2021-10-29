@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import styled from 'styled-components';
 
-import { BRANDS, TAGS } from 'common/constants';
 import * as colors from 'common/colors';
+import { FilterAreaProps } from 'common/interfaces';
 
 import CheckboxGroupSearchable from 'components/checkbox-group-searchable/CheckboxGroupSearchable';
 import SortOrder from 'components/sort-order/SortOrder';
@@ -42,8 +42,24 @@ const StyledMobileFilterColumn = styled(FilterColumn)`
   }
 `;
 
-const FilterArea = () => {
+const FilterArea = ({ items, tags, brands }: FilterAreaProps): JSX.Element => {
   const [filterModalVisible, setFilterModalVisible] = useState<boolean>(false);
+
+  const tagList = useMemo(() => {
+    return tags.map((tag) => ({
+      text: tag,
+      value: tag,
+      info: items.filter(({ tags }) => tags.includes(tag)).length,
+    }));
+  }, [tags, items]);
+
+  const brandList = useMemo(() => {
+    return brands.map((brand) => ({
+      text: brand,
+      value: brand,
+      info: items.filter(({ manufacturer }) => manufacturer === brand).length,
+    }));
+  }, [brands, items]);
 
   const handleFilterModalVisibility = () => {
     if (window.innerWidth <= intervals.smallScreenMaxWidth) {
@@ -60,8 +76,8 @@ const FilterArea = () => {
       </StyledFilterToggleButton>
       <FilterColumn flexDirection="column">
         <SortOrder />
-        <CheckboxGroupSearchable title="Brands" options={BRANDS} />
-        <CheckboxGroupSearchable title="Tags" options={TAGS} />
+        <CheckboxGroupSearchable title="Brands" options={brandList} />
+        <CheckboxGroupSearchable title="Tags" options={tagList} />
       </FilterColumn>
       <Modal
         visible={filterModalVisible}
@@ -70,8 +86,8 @@ const FilterArea = () => {
       >
         <StyledMobileFilterColumn flexDirection="column">
           <SortOrder />
-          <CheckboxGroupSearchable title="Brands" options={BRANDS} />
-          <CheckboxGroupSearchable title="Tags" options={TAGS} />
+          <CheckboxGroupSearchable title="Brands" options={brandList} />
+          <CheckboxGroupSearchable title="Tags" options={tagList} />
         </StyledMobileFilterColumn>
       </Modal>
     </>
