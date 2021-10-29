@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 
 import { RadioButtonGroupProps, RadioButtonProps } from 'common/interfaces';

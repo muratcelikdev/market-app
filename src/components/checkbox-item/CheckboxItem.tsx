@@ -37,10 +37,16 @@ const StyledCheckboxInfo = styled(StyledCheckboxText)`
   }
 `;
 
-const CheckboxItem = ({ value, text, info, onSelect }: CheckboxItemProps): JSX.Element => {
+const CheckboxItem = ({
+  value,
+  text,
+  info,
+  selected,
+  onSelect,
+}: CheckboxItemProps): JSX.Element => {
   return (
     <StyledCheckboxItemContainer alignItems="center">
-      <Checkbox value={value} onSelect={onSelect} />
+      <Checkbox onSelect={onSelect} value={value} selected={selected} />
       <StyledCheckboxContent>
         <StyledCheckboxText>{text}</StyledCheckboxText>
         <StyledCheckboxInfo>{info}</StyledCheckboxInfo>

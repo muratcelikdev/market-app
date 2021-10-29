@@ -42,7 +42,14 @@ const StyledMobileFilterColumn = styled(FilterColumn)`
   }
 `;
 
-const FilterArea = ({ items, tags, brands, setBrands, setTags }: FilterAreaProps): JSX.Element => {
+const FilterArea = ({
+  items,
+  tags,
+  brands,
+  filter,
+  setBrands,
+  setTags,
+}: FilterAreaProps): JSX.Element => {
   const [filterModalVisible, setFilterModalVisible] = useState<boolean>(false);
 
   const tagList = useMemo(() => {
@@ -80,11 +87,13 @@ const FilterArea = ({ items, tags, brands, setBrands, setTags }: FilterAreaProps
           title="Brands"
           options={brandList}
           onSelection={(selectedValues: any) => setBrands(selectedValues)}
+          selectedValues={filter.brands}
         />
         <CheckboxGroupSearchable
           title="Tags"
           options={tagList}
           onSelection={(selectedValues) => setTags(selectedValues)}
+          selectedValues={filter.tags}
         />
       </FilterColumn>
       <Modal
@@ -98,11 +107,13 @@ const FilterArea = ({ items, tags, brands, setBrands, setTags }: FilterAreaProps
             title="Brands"
             options={brandList}
             onSelection={(selectedValues: any) => setBrands(selectedValues)}
+            selectedValues={filter.brands}
           />
           <CheckboxGroupSearchable
             title="Tags"
             options={tagList}
             onSelection={(selectedValues) => setTags(selectedValues)}
+            selectedValues={filter.tags}
           />
         </StyledMobileFilterColumn>
       </Modal>

@@ -38,6 +38,7 @@ export interface ButtonProps {
 
 export interface CheckboxProps {
   value: any;
+  selected: boolean;
   onSelect: (value: any) => void;
 }
 
@@ -48,18 +49,21 @@ export interface CheckboxGroupItemProps {
 }
 
 export interface CheckboxItemProps extends CheckboxGroupItemProps {
+  selected: boolean;
   onSelect: (value: any) => void;
 }
 
 export interface CheckboxGroupProps {
   options: Array<CheckboxGroupItemProps>;
   searchText: string;
+  selectedValues: Array<any>;
   onSelect: (value: any) => void;
 }
 
 export interface CheckboxGroupSearchableProps {
   title: string;
   options: Array<CheckboxGroupItemProps>;
+  selectedValues: Array<string>;
   onSelection: (values: any[]) => void;
 }
 
@@ -67,6 +71,7 @@ export interface FilterAreaProps {
   items: Array<ItemProps>;
   tags: Array<string>;
   brands: Array<string>;
+  filter: any;
   setBrands: (value: string[]) => void;
   setTags: (value: string[]) => void;
 }

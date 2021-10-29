@@ -8,6 +8,7 @@ const mapStateToProps = (state) => ({
   items: state.items.itemList,
   tags: state.items.tagList,
   brands: state.items.brandList,
+  filter: state.filter,
 });
 
 const mapDispatchToProps = (dispatch) =>

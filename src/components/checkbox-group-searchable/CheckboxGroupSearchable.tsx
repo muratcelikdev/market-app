@@ -31,7 +31,12 @@ const StyledSubtitle = styled(Subtitle)`
   margin-bottom: 12px;
 `;
 
-const CheckboxGroupSearchable = ({ title, options, onSelection }: CheckboxGroupSearchableProps) => {
+const CheckboxGroupSearchable = ({
+  title,
+  options,
+  selectedValues,
+  onSelection,
+}: CheckboxGroupSearchableProps) => {
   const [searchText, setSearchText] = useState<string>('');
   const [selectedCheckboxValues, setSelectedCheckboxValues] = useState<any[]>([]);
 
@@ -61,6 +66,7 @@ const CheckboxGroupSearchable = ({ title, options, onSelection }: CheckboxGroupS
           options={options}
           searchText={searchText}
           onSelect={(value) => handleSelection(value)}
+          selectedValues={selectedValues}
         />
       </StyledCheckboxGroupSearchable>
     </>

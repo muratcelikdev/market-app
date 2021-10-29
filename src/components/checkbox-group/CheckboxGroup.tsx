@@ -14,7 +14,12 @@ const StyledCheckboxGroupContainer = styled(FlexBox)`
   overflow-y: scroll;
 `;
 
-const CheckboxGroup = ({ options, searchText, onSelect }: CheckboxGroupProps): JSX.Element => {
+const CheckboxGroup = ({
+  options,
+  searchText,
+  selectedValues,
+  onSelect,
+}: CheckboxGroupProps): JSX.Element => {
   const renderOptions = () => {
     const optionsToRender: typeof options =
       searchText.length === 0
@@ -25,11 +30,12 @@ const CheckboxGroup = ({ options, searchText, onSelect }: CheckboxGroupProps): J
 
     return optionsToRender.map(({ value, text, info }, index) => (
       <CheckboxItem
-        key={index}
         value={value}
+        key={index}
         text={text}
         info={info}
         onSelect={(selection) => onSelect(selection)}
+        selected={selectedValues.includes(value)}
       />
     ));
   };
