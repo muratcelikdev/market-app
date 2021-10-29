@@ -45,16 +45,12 @@ const StyledSortOrder = styled.div`
   }
 `;
 
-const SortOrder = () => {
-  const handleSortOrderChange = (value) => {
-    // TODO: implement handle sort order logic
-  };
-
+const SortOrder = ({ setSorting }) => {
   return (
     <>
       <StyledSubtitle text="Sorting" />
       <StyledSortOrder>
-        <RadioButtonGroup options={SORT_ORDER_LIST} onChange={handleSortOrderChange} />
+        <RadioButtonGroup options={SORT_ORDER_LIST} onChange={(value) => setSorting(value)} />
       </StyledSortOrder>
     </>
   );

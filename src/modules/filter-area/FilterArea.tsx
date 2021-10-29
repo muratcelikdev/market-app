@@ -5,7 +5,7 @@ import * as colors from 'common/colors';
 import { FilterAreaProps } from 'common/interfaces';
 
 import CheckboxGroupSearchable from 'components/checkbox-group-searchable/CheckboxGroupSearchable';
-import SortOrder from 'components/sort-order/SortOrder';
+import SortOrderContainer from 'components/sort-order/SortOrderContainer';
 
 import { FilterColumn, FlexBoxCentered } from 'styles/components';
 import screens, { intervals } from 'styles/screen';
@@ -75,7 +75,7 @@ const FilterArea = ({ items, tags, brands }: FilterAreaProps): JSX.Element => {
         Filter
       </StyledFilterToggleButton>
       <FilterColumn flexDirection="column">
-        <SortOrder />
+        <SortOrderContainer />
         <CheckboxGroupSearchable title="Brands" options={brandList} />
         <CheckboxGroupSearchable title="Tags" options={tagList} />
       </FilterColumn>
@@ -85,7 +85,7 @@ const FilterArea = ({ items, tags, brands }: FilterAreaProps): JSX.Element => {
         onClose={() => setFilterModalVisible(false)}
       >
         <StyledMobileFilterColumn flexDirection="column">
-          <SortOrder />
+          <SortOrderContainer />
           <CheckboxGroupSearchable title="Brands" options={brandList} />
           <CheckboxGroupSearchable title="Tags" options={tagList} />
         </StyledMobileFilterColumn>
