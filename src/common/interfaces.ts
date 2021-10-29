@@ -56,7 +56,8 @@ export interface FilterAreaProps {
   items: Array<ItemProps>;
   tags: Array<string>;
   brands: Array<string>;
-  setBrands: (value: string) => void;
+  setBrands: (value: string[]) => void;
+  setTags: (value: string[]) => void;
 }
 
 export interface ModalProps {

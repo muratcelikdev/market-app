@@ -24,6 +24,9 @@ const filterSlice = createSlice({
     setBrands: (state, action) => {
       state.brands = action.payload;
     },
+    setTags: (state, action) => {
+      state.tags = action.payload;
+    },
     setItemType: (state, action) => {
       state.itemType = action.payload;
     },
@@ -31,6 +34,6 @@ const filterSlice = createSlice({
 });
 
 export const { actions } = filterSlice;
-export const { setSorting, setBrands, setItemType } = actions;
+export const { setSorting, setBrands, setTags, setItemType } = actions;
 
 export default filterSlice.reducer;
