@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import * as colors from 'common/colors';
 import { BasketListProps } from 'common/interfaces';
@@ -9,30 +9,39 @@ import BasketTotalAmountContainer from 'components/basket-total-amount/BasketTot
 import { FlexBox } from 'styles/components';
 import screens from 'styles/screen';
 
-const StyledBasketList = styled(FlexBox)`
-  width: 280px;
-  min-height: 321.9px;
-  height: fit-content;
+interface StyledBasketListProps {
+  visible: boolean;
+}
 
-  padding: 16px;
+const StyledBasketList = styled(FlexBox)(
+  ({ visible }: StyledBasketListProps) => css`
+    width: 280px;
+    min-height: 321.9px;
+    height: fit-content;
 
-  background-color: ${colors.white};
+    padding: 16px;
 
-  border: 8.2px solid ${colors.base};
+    background-color: ${colors.white};
 
-  @media ${screens.smallScreen} {
-    width: 100%;
-    height: 100%;
-  }
-`;
+    border: 8.2px solid ${colors.base};
+
+    visibility: ${visible ? 'visible' : 'hidden'};
+
+    @media ${screens.smallScreen} {
+      width: 100%;
+      height: 100%;
+    }
+  `
+);
 
 const StyledBasketListItemContainer = styled(FlexBox)`
   width: 100%;
+  max-height: 280px;
+
+  overflow-y: scroll;
 
   @media ${screens.smallScreen} {
     max-height: calc(100% - 50px);
-
-    overflow-y: scroll;
   }
 `;
 
@@ -53,6 +62,7 @@ const StyledBasketTotalAmount = styled(BasketTotalAmountContainer)`
 const BasketList = ({ className, products }: BasketListProps) => {
   return (
     <StyledBasketList
+      visible={products.length > 0}
       className={className}
       flexDirection="column"
       justifyContent="space-between"
