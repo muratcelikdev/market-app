@@ -24,8 +24,6 @@ const CheckboxGroup = ({ options, searchText }: CheckboxGroupProps): JSX.Element
       searchText.length === 0
         ? options
         : options.filter(({ text }) => {
-            console.log({ text, searchText });
-
             return text.toLocaleLowerCase().includes(searchText.toLocaleLowerCase());
           });
 
