@@ -46,7 +46,7 @@ const StyledIcon = styled.img`
   margin-right: 13.4px;
 `;
 
-const Basket = ({ price }: BasketProps): JSX.Element => {
+const Basket = ({ totalAmount }: BasketProps): JSX.Element => {
   const [basketListModalVisible, setBasketListModalVisible] = useState<boolean>(false);
 
   const handleBasketListModalVisibility = () => {
@@ -61,7 +61,7 @@ const Basket = ({ price }: BasketProps): JSX.Element => {
     <>
       <StyledBasketButton onClick={handleBasketListModalVisibility}>
         <StyledIcon src={BasketIcon} alt="Basket Icon" />
-        <StyledPriceText>{price}</StyledPriceText>
+        <StyledPriceText>{totalAmount.toFixed(2)}</StyledPriceText>
       </StyledBasketButton>
       <Modal
         visible={basketListModalVisible}

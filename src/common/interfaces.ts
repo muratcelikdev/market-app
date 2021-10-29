@@ -1,12 +1,12 @@
-import { BasketItemProps } from 'state/slices/basketSlice';
 import { ItemProps } from 'state/slices/itemsSlice';
 
 export interface BasketProps {
-  price: number;
+  totalAmount: number;
 }
 
-export interface BasketListItemProps extends BasketProps {
+export interface BasketListItemProps {
   productName: string;
+  price: number;
   slug: string;
   products: any[];
   increaseProduct: (product: ProductProps) => void;
@@ -21,11 +21,13 @@ export interface BasketListItemCounterProps {
 }
 
 export interface BasketTotalAmountProps {
+  totalAmount: number;
   className?: string;
 }
 
-export interface BasketListProps extends BasketTotalAmountProps {
+export interface BasketListProps {
   products: Array<ProductProps>;
+  className?: string;
 }
 
 export interface ButtonProps {

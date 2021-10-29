@@ -8,10 +8,12 @@ export interface BasketItemProps extends ProductProps {
 
 interface StateProps {
   products: Array<BasketItemProps>;
+  totalAmount: number;
 }
 
 const state: StateProps = {
   products: [],
+  totalAmount: 0,
 };
 
 const basketSlice = createSlice({
@@ -32,17 +34,25 @@ const basketSlice = createSlice({
           count: 1,
         });
       }
+
+      state.totalAmount = state.products.reduce(
+        (previousCount: number, currentProduct: BasketItemProps) =>
+          previousCount + currentProduct.count * currentProduct.price,
+        0
+      );
     },
     decreaseProduct: (state, action) => {
       const slug = action.payload;
       const index = current(state).products.findIndex((product) => product.slug === slug);
-      const { count } = current(state).products[index];
+      const { count, price } = current(state).products[index];
 
       if (count === 1) {
         state.products.splice(index, 1);
       } else {
         state.products[index].count -= 1;
       }
+
+      state.totalAmount -= price;
     },
   },
 });

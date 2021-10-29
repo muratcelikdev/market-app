@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import * as colors from 'common/colors';
 
-import Basket from 'components/basket/Basket';
+import BasketContainer from 'components/basket/BasketContainer';
 import Page from 'components/page/Page';
 
 import { FlexBox, FlexBoxCentered } from 'styles/components';
@@ -52,7 +52,7 @@ const Navbar = (): JSX.Element => {
       <Page>
         <StyledNavbar justifyContent="flex-end">
           <StyledLogo src={Logo} alt="logo" />
-          <Basket price={39.97} />
+          <BasketContainer />
         </StyledNavbar>
       </Page>
     </StyledNavbarContainer>

@@ -28,11 +28,10 @@ const StyledBasketTotalAmountText = styled.div`
   }
 `;
 
-const BasketTotalAmount = ({ className }: BasketTotalAmountProps): JSX.Element => {
+const BasketTotalAmount = ({ totalAmount, className }: BasketTotalAmountProps): JSX.Element => {
   return (
     <StyledBasketTotalAmount className={className}>
-      {/* TODO: get data from redux */}
-      <StyledBasketTotalAmountText>39.97</StyledBasketTotalAmountText>
+      <StyledBasketTotalAmountText>{totalAmount.toFixed(2)}</StyledBasketTotalAmountText>
     </StyledBasketTotalAmount>
   );
 };

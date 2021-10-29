@@ -4,7 +4,7 @@ import * as colors from 'common/colors';
 import { BasketListProps } from 'common/interfaces';
 
 import BasketListItemContainer from 'components/basket-list-item/BasketListItemContainer';
-import BasketTotalAmount from 'components/basket-total-amount/BasketTotalAmount';
+import BasketTotalAmountContainer from 'components/basket-total-amount/BasketTotalAmountContainer';
 
 import { FlexBox } from 'styles/components';
 import screens from 'styles/screen';
@@ -46,7 +46,7 @@ const StyledBasketListItem = styled(BasketListItemContainer)`
   }
 `;
 
-const StyledBasketTotalAmount = styled(BasketTotalAmount)`
+const StyledBasketTotalAmount = styled(BasketTotalAmountContainer)`
   margin-top: 16.4px;
 `;
 
