@@ -18,6 +18,7 @@ const mapStateToProps = (state) => {
 
   return {
     pages: sliceItemListIntoChunks(),
+    itemTypes: state.items.itemTypes,
   };
 };
 

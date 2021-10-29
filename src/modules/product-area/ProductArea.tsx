@@ -38,13 +38,13 @@ const StyledTags = styled(Tags)`
   margin: 16px 0;
 `;
 
-const ProductArea = ({ pages }) => {
+const ProductArea = ({ pages, itemTypes }) => {
   const [currentPageIndex, setCurrentPageIndex] = useState<number>(0);
 
   return (
     <StyledSection flexDirection="column">
       <Title text="Products" />
-      <StyledTags tags={['mug', 'shirt']} />
+      <StyledTags tags={itemTypes} />
       <StyledProductsArea wrap gap={24}>
         {pages.length > 0 &&
           pages[currentPageIndex].map(({ name, price }, index) => (
